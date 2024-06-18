@@ -1,0 +1,9 @@
+name: 'acetao.ini parser'
+description: 'Parse acetao.ini so other actions can use its content.'
+inputs:
+  section:
+    description: 'section to make available'
+    required: true
+runs:
+  using: 'node20'
+  main: 'index.js'

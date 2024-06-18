@@ -1,0 +1,16 @@
+{
+  "name": "acetao-ini-parser",
+  "version": "1.0.0",
+  "description": "A GitHub Action for parsing acetao.ini so other actions can use its content.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "Apache 2.0",
+  "dependencies": {
+    "@actions/core": "^1.10.1",
+    "ini": "^4.1.3"
+  }
+}
