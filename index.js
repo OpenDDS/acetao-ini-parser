@@ -5,7 +5,7 @@ const ini = require('ini');
 try {
     const section = core.getInput('section')
 
-    const content = fs.readFileSync(`./acetao.ini`,{
+    const content = fs.readFileSync(`OpenDDS/acetao.ini`,{
         encoding : 'utf-8'
     });
 
