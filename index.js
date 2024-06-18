@@ -1,20 +1,23 @@
 const core = require('@actions/core');
+const fs = require('node:fs');
+const ini = require('ini');
 
 try {
-    import { readFile } from 'node:fs/promises'
-    import { parse } from 'ini'
-
     const section = core.getInput('section')
 
-    const content = await readFile(`./acetao.ini`,{
+    const content = fs.readFileSync(`./acetao.ini`,{
         encoding : 'utf-8'
-    })
+    });
 
-    const config = parse(content)
-
-    for (const [key, value] of Object.entries(config[section]))
-        core.setOutput(key, value);
+    const config = ini.parse(content);
+    for (const [key, value] of Object.entries(config)) {
+        if (key === section) {
+            for (const [key2, value2] of Object.entries(value)) {
+                core.setOutput(key2, value2);
+            }
+        }
     }
+
 } catch (error) {
     core.setFailed(error.message);
 }
